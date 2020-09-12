@@ -25,14 +25,14 @@ public class Tabuleiro {
 	
 	public Peca peca(int linha, int coluna) {
 		if( !existePosicao(linha,coluna)) {
-			throw new TabuleiroException("A posição informada não existe no tabuleiro!")
+			throw new TabuleiroException("A posição informada não existe no tabuleiro!");
 		}
 		return pecas[linha][coluna];
 	}
 	
 	public Peca peca(Posicao posicao) {
 		if( !existePosicao(posicao)) {
-			throw new TabuleiroException("A posição informada não existe no tabuleiro!")
+			throw new TabuleiroException("A posição informada não existe no tabuleiro!");
 		}
 		return pecas[posicao.getLinha()][posicao.getColuna()];
 	}
@@ -53,7 +53,7 @@ public class Tabuleiro {
 	}
 	
 	public boolean contemPeca(Posicao posicao) {
-		if( contemPeca(posicao)) {
+		if( !existePosicao(posicao)) {
 			throw new TabuleiroException("Já existe uma peça na posição"+posicao);
 		}
 		return peca(posicao) != null;
