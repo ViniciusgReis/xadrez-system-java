@@ -30,6 +30,12 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 	
+	// https://stackoverflow.com/questions/2979383/java-clear-the-console
+	public static void clearScreen() {
+		System.out.println("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	public static PosicaoXadrez lerPosicaoXadrez(Scanner sc) {
 		try {
 			String s = sc.nextLine();
@@ -38,7 +44,7 @@ public class UI {
 			return new PosicaoXadrez(coluna, linha);
 		}
 		catch (RuntimeException e) {
-			throw new InputMismatchException("Erro na leitura da da posição. Valores válidos são de a1 até h8.");
+			throw new InputMismatchException("Erro na leitura da da posicao. Valores validos sao de a1 ate h8.");
 		}
 	}
 
